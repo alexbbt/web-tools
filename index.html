@@ -1,64 +1,83 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Aragorn Analytics -->
-        <script src="https://cdn2.editmysite.com/js/external/aragorn-analytics.js"></script>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- jQuery -->
-        <script
-                src="https://code.jquery.com/jquery-3.3.1.js"
-                integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-                crossorigin="anonymous"></script>
+    <!-- Aragorn Analytics -->
+    <script src="https://cdn2.editmysite.com/js/external/aragorn-analytics.js"></script>
 
-        <!-- Popper.js  -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
 
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Popper.js  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
 
-         <!-- Moment  -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
-        <title>web-tools</title>
+    <!-- Moment  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment.js"></script>
 
-        <style>
-            pre {
-                font-size: 20px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>web-tools</h1>
-            <h4>Open the Console</h4>
-            <pre>⌘ ⌥ i (command option i)</pre>
-            <h4>Libraries:</h4>
-            <ul>
-                <li>Aragorn Analytics (window.AragornAnalytics)</li>
-                <li>jQuery (window.jQuery window.$)</li>
-                <li>Popper.js (window.Popper)</li>
-                <li>Bootstrap (css and js)</li>
-                <li>Moment.js (window.Moment)</li>
-            </ul>
+    <title>web-tools</title>
+
+    <style>
+        pre {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>web-tools</h1>
+        <h4>Open the Console</h4>
+        <pre><kbd><kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>i</kbd></kbd> (command option i)</pre>
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h4>Libraries:</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">Aragorn Analytics (window.AragornAnalytics)</li>
+                    <li class="list-group-item">jQuery (window.jQuery window.$)</li>
+                    <li class="list-group-item">Popper.js (window.Popper)</li>
+                    <li class="list-group-item">Bootstrap (css and js)</li>
+                    <li class="list-group-item">Moment.js (window.Moment)</li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6">
+                <h4>Tools:</h4>
+                <div class="list-group">
+                    <a href="./json" class="list-group-item list-group-item-action">JSON Reader <code>./json</code></a>
+                </div>
+            </div>
         </div>
-        <div class="container">
-            <h4>There is a div below has the id content: `#content`</h4>
-            <div id="content"></div>
-        </div>
-        
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62119543-5"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
 
-          gtag('config', 'UA-62119543-5');
-        </script>
-    </body>
+    </div>
+    <div class="container">
+        <h4>There is a div below has the id content: `#content`</h4>
+        <div id="content"></div>
+    </div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62119543-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-62119543-5');
+    </script>
+</body>
+
 </html>
