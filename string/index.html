@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+
+    <title>web-tools - String Manipulator</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 onclick="window.location = '../'">web-tools - String Manipulator</h1>
+
+        <h4>Paste a String</h4>
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="input-group">
+                    <textarea class="form-control" rows="10" aria-label="With textarea" id="string"></textarea>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td scope="row">Characters:</td>
+                            <td class="text-right" id="characters"></td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Words:</td>
+                            <td class="text-right" id="words"></td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Sentences:</td>
+                            <td class="text-right" id="sentences"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="list-group">
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="Lowercase">Lowercase</button>
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="Uppercase">Uppercase</button>
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="Reverse">Reverse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62119543-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-62119543-5');
+    </script>
+
+    <script>
+        var textBox = document.getElementById('string');
+
+        function updateStats() {
+            var string = textBox.value;
+            console.log(string);
+            document.getElementById('characters').textContent = string.length;
+            document.getElementById('words').textContent = string.split(/[a-z'\-]+/gi).length - 1;
+            document.getElementById('sentences').textContent = string.length > 0 ? string.replace(
+                /([.?!])\s*(?=[A-Z])/g, "$1|").split("|").length : 0;
+        }
+        updateStats();
+        textBox.addEventListener('keyup', updateStats, false);
+        var actions = document.getElementsByClassName('string-action');
+        for (let i = 0; i < actions.length; i++) {
+            const element = actions[i];
+            element.addEventListener('click', () => {
+                switch (element.id) {
+                    case 'Lowercase':
+                        textBox.value = String(textBox.value).toLocaleLowerCase();
+                        break;
+                    case 'Uppercase':
+                        textBox.value = String(textBox.value).toLocaleUpperCase();
+                        break;
+                    case 'Reverse':
+                        textBox.value = String(textBox.value).split('').reverse().join('');
+                        break;
+                }
+                updateStats();
+            })
+        }
+    </script>
+
+</body>
+
+</html>
