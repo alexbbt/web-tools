@@ -101,12 +101,23 @@
             };
         }
 
-        function parseJson(j) {
+        function parseJson(j, setUrl = true, setBlob = true) {
             try {
                 const json = JSON.parse(j);
                 console.log(json);
                 window.result = json;
                 $('#json-viewer').jsonViewer(json);
+                
+                if (setUrl) {
+                    const search = new URLSearchParams();
+                    search.append('json', j);
+                    window.location.search = search.toString();
+                }
+                
+                if (setBlob) {
+                    document.querySelector('#json').value = j
+                }
+                
             } catch (e) {
                 alert('error parsing json');
                 console.error(e);
@@ -120,7 +131,7 @@
                 alert('File read cancelled');
             };
             reader.onload = function (e) {
-                parseJson(this.result);
+                parseJson(this.result, false, false);
             }
 
             // Read in the image file as a binary string.
@@ -128,14 +139,14 @@
         }
 
         function readJson() {
-            parseJson(document.querySelector('#json').value)
+            parseJson(document.querySelector('#json').value, true, false);
         }
 
         document.getElementById('files').addEventListener('change', handleFileSelect, false);
         
         const search = new URLSearchParams(window.location.search);
         if (search.get('json')) {
-            parseJson(search.get('json'));
+            parseJson(search.get('json'), false, true);
         }
 
     </script>
