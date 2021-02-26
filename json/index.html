@@ -111,7 +111,9 @@
                 if (setUrl) {
                     const search = new URLSearchParams();
                     search.append('json', j);
-                    window.location.search = search.toString();
+                    if (j.length < 2048) {
+                        window.location.search = search.toString();
+                    }
                 }
                 
                 if (setBlob) {
