@@ -56,9 +56,18 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <div class="list-group">
-                    <button type="button" class="list-group-item list-group-item-action string-action" id="Lowercase">Lowercase</button>
-                    <button type="button" class="list-group-item list-group-item-action string-action" id="Uppercase">Uppercase</button>
-                    <button type="button" class="list-group-item list-group-item-action string-action" id="Reverse">Reverse</button>
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="lowercase">Lowercase</button>
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="uppercase">Uppercase</button>
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="reverse">Reverse</button>
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="capital">Capital</button>
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="snake">Snake</button>
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="pascal">Pascal</button>
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="camel">Camel</button>
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="kebab">Kebab</button>
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="header">Header</button>
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="constant">Constant</button>
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="title">Title</button>
+                    <button type="button" class="list-group-item list-group-item-action string-action" id="sentence">Sentence</button>
                 </div>
             </div>
         </div>
@@ -79,6 +88,7 @@
         gtag('config', 'UA-62119543-5');
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/case@1.6.3/dist/Case.min.js"></script>
     <script>
         var textBox = document.getElementById('string');
 
@@ -97,15 +107,45 @@
             const element = actions[i];
             element.addEventListener('click', () => {
                 switch (element.id) {
-                    case 'Lowercase':
-                        textBox.value = String(textBox.value).toLocaleLowerCase();
-                        break;
-                    case 'Uppercase':
-                        textBox.value = String(textBox.value).toLocaleUpperCase();
-                        break;
-                    case 'Reverse':
+                    case 'reverse':
                         textBox.value = String(textBox.value).split('').reverse().join('');
                         break;
+                    case 'lowercase':
+                        textBox.value = Case.lowercase(textBox.value);
+                        break
+                    case 'uppercase':
+                        textBox.value = Case.uppercase(textBox.value);
+                        break
+                    case 'reverse':
+                        textBox.value = Case.reverse(textBox.value);
+                        break
+                    case 'capital':
+                        textBox.value = Case.capital(textBox.value);
+                        break
+                    case 'snake':
+                        textBox.value = Case.snake(textBox.value);
+                        break
+                    case 'pascal':
+                        textBox.value = Case.pascal(textBox.value);
+                        break
+                    case 'camel':
+                        textBox.value = Case.camel(textBox.value);
+                        break
+                    case 'kebab':
+                        textBox.value = Case.kebab(textBox.value);
+                        break
+                    case 'header':
+                        textBox.value = Case.header(textBox.value);
+                        break
+                    case 'constant':
+                        textBox.value = Case.constant(textBox.value);
+                        break
+                    case 'title':
+                        textBox.value = Case.title(textBox.value);
+                        break
+                    case 'sentence':
+                        textBox.value = Case.sentence(textBox.value);
+                        break
                 }
                 updateStats();
             })
