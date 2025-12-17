@@ -111,13 +111,10 @@
                         textBox.value = String(textBox.value).split('').reverse().join('');
                         break;
                     case 'lowercase':
-                        textBox.value = Case.lowercase(textBox.value);
+                        textBox.value = Case.lower(textBox.value);
                         break
                     case 'uppercase':
-                        textBox.value = Case.uppercase(textBox.value);
-                        break
-                    case 'reverse':
-                        textBox.value = Case.reverse(textBox.value);
+                        textBox.value = Case.upper(textBox.value);
                         break
                     case 'capital':
                         textBox.value = Case.capital(textBox.value);
